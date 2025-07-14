@@ -1,0 +1,1 @@
+This is a template for a site that uses html and css.

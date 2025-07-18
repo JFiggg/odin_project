@@ -1,3 +1,6 @@
+let computerWins = 0;
+let humanWins = 0;
+
 // function automatically gets computer's choice
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
@@ -13,54 +16,53 @@ function getComputerChoice() {
 // function asks user for choice, then returns it
 function getHumanChoice(choiceNum) {
     const options = ["Rock", "Paper", "Scissors"];
-    var choiceNum = prompt("Choose a number 1-3 \n 1: Rock, 2: Paper, 3: Scissors");
-    if (choiceNum == 1) {
-        return options[0];
-    } else if (choiceNum == 2) {
-        return options[1];
+    return options[choiceNum]
+}
+
+function displayResultHTML(text, classN) {
+    const result = document.querySelector(classN);
+    const child = result.querySelector(".tempResult");
+    if (child) {
+        result.removeChild(child);
     }
-    return options[2];
+    const content = document.createElement("p");
+    content.classList.add("tempResult"); 
+    content.textContent = text;
+    result.appendChild(content);
 }
 
 function playRound(humanChoice, computerChoice) {
+    let message = "";
     if (humanChoice == computerChoice) {
-        return "Its a tie! Play again."
+        message = "Its a tie! Play again.";
     } else if (humanChoice == "Rock" && computerChoice == "Scissors" ||
                 humanChoice == "Paper" && computerChoice == "Rock" ||
                 humanChoice == "Scissors" && computerChoice == "Paper"
     ) {
-        const humanWin = `${humanChoice} beats ${computerChoice}, human wins this round`;
-        return humanWin;
+        humanWins++;
+        message = `Human: ${humanChoice},\nComputer: ${computerChoice}\n --- Human wins this round`;
     } else {
-        const computerWin = `${computerChoice} beats ${humanChoice}, computer wins this round`;
-        return computerWin;
+        computerWins++;
+        message = `Human: ${humanChoice},\n Computer: ${computerChoice}\n --- Computer wins this round`;
+    }
+    displayResultHTML(message, ".result")
+    displayResultHTML(humanWins, "#humanScore");
+    displayResultHTML(computerWins, "#computerScore");
+
+    if (humanWins === 5 || computerWins === 5) {
+        const winner = humanWins === 5 ? "Human" : "Computer";
+        displayResultHTML(`${winner} won the game!`, ".result");
+
+        document.querySelectorAll("button").forEach(btn => btn.disabled = true);
+        document.querySelectorAll("button").forEach(btn => btn.disabled = true)
     }
 }
 
-function playGame() {
-    let humanWins = 0;
-    let computerWins = 0;
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        const result = playRound(humanChoice, computerChoice);
-        if (result.includes("human")) {
-            humanWins += 1;
-        } else {
-            computerWins += 1;
-        }
-        const currentScore = `\nHuman Score: ${humanWins}\nComputer Score: ${computerWins}`;
-        console.log(result);
-        console.log(currentScore);
-    }
-    var winner;
-    if (humanWins > computerWins) {
-        winner = "Human"
-    } else {
-        winner = "Computer"
-    }
+const rockbtn = document.querySelector(".rockbtn");
+rockbtn.onclick = () => playRound(rockbtn.getAttribute("id"), getComputerChoice());
+const paperbtn = document.querySelector(".paperbtn");
+paperbtn.onclick = () => playRound(paperbtn.getAttribute("id"), getComputerChoice());
+const scissorbtn = document.querySelector(".scissorbtn");
+scissorbtn.onclick = () => playRound(scissorbtn.getAttribute("id"), getComputerChoice());
 
-    return `${winner} won the game. `
-}
 
-console.log(playGame());

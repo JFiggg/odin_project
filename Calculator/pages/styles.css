@@ -1,0 +1,79 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: larger;
+    background: linear-gradient(to bottom right, #e3f2fd, #b0d4ff);
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background: linear-gradient(to bottom, #a2d2ff, #81c3f9);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 800px;
+    height: 1000px;
+    margin: 20px 40px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 5fr;
+}
+
+.label {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: auto;
+    border-radius: 20px;
+    background-color: #d0eaff;
+    color: #0d47a1;
+    border: 1px solid rgb(255,255,255,0.4);
+    box-shadow: inset;
+    font-size: 140px;
+    padding-right: 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.buttons button {
+    color: #0d47a1;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 40px;
+    background: linear-gradient(to bottom, #cce5ff, #90caf9);
+    border: none;
+    box-shadow: inset 0 -1px 2px rgba(255, 255, 255, 0.6),
+              0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+}
+
+.buttons button:hover {
+    background: linear-gradient(to bottom, #bbdefb, #64b5f6);
+}
+
+.buttons button:active {
+    transform: scale(0.97)
+}

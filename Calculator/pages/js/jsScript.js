@@ -2,45 +2,104 @@
 let display = document.querySelector(".label");
 // contains number buttons
 const nums = document.querySelectorAll(".number");
-// maps each button to a function that displays the number in the display
+const operationBtns = document.querySelectorAll(".operation");
+const equalsBtn = document.querySelector(".equals");
+const clearBtn = document.querySelector(".clear");
+// maps each number button to a function typeNums function
 nums.forEach((num) => {
     num.addEventListener("click", () => {
-        updateDisplay(num.textContent);
+        typeNums(num.textContent);
     })
 });
+// maps each operation button to SaveOp function
+operationBtns.forEach((operationBtn) => {
+    operationBtn.addEventListener("click", () => {
+        saveOp(operationBtn.textContent);
+    })
+});
+// adds clear functionality to clear button
+clearBtn.addEventListener("click", () => {
+    clear();
+});
+// allows the equals button to calculate the inputs to produce a result 
+equalsBtn.addEventListener("click", () => {
+    calculate();
+})
 
+// stack holds first number and operation
+var stack = [];
 
-function calcLogic() {
-    // record first num
-    // record sign
-    // record second num
-    // on equal, show result, set num to first num or change on click
-}
-
-function updateDisplay(input) {
-    if (display.textContent.length > 8) {
+// type nums into display
+function typeNums(input) {
+    let current = display.textContent.replaceAll(",", "");
+    if (current.length >= 8) {
         alert("Number too long");
         return;
     }
-    if (display.textContent == 0) {
-        display.textContent = input;    
+    // sets new num if display is 0, adds num to the end if number is not 0
+    if (current == 0) {
+        current = input;    
     } else {
-        display.textContent = display.textContent + input;
+        current += input;
     }
+    display.textContent = Number(current).toLocaleString("en-US");
 }
 
-function add(num1, num2) {
-    return num1 + num2;
+// function for clicking an operation
+function saveOp(sign) {
+    // does not perform function if it the top of the stack is an operaton
+    if (stack.at(-1) == "+" || stack.at(-1) == "-" || stack.at(-1) == "x" || stack.at(-1) == "/") {
+        return;
+    }
+    // display number and operation saved to stack
+    stack.push(display.textContent);
+    stack.push(sign);
+    display.textContent = 0;
 }
 
-function subtract(num1, num2) {
-    return num1 - num2;
+// Performs calculation using current number in display, the sign stored in the stack, and the other number stored in the stack 
+function calculate() {
+    // makes sure the stack has an operation clicked already, if not, this function will not execute
+    if (!(stack.at(-1) == "+" || stack.at(-1) == "-" || stack.at(-1) == "x" || stack.at(-1) == "/")) {
+        return;
+    }
+    var secondNum = Number(display.textContent.replaceAll(",", ""));
+    var sign = stack.pop();
+    var firstNum = Number(stack.pop().replaceAll(",", ""));
+    // performs operation based on sign chosen
+    let result;
+    switch (sign) {
+        case "+":
+            result = firstNum + secondNum;
+            break;
+        case "-":
+            result = firstNum - secondNum;
+            break;
+        case "x":
+            result = firstNum * secondNum;
+            break;
+        case "/":
+            if (secondNum === 0) {
+                alert("Can not divide by zero");
+                return;
+            }
+            result = Math.floor(firstNum / secondNum);
+            break;
+        default:
+            alert("Unknown operator");
+            return;
+    }
+    if (String(result).length > 8) {
+        alert("Error: Number too big!");
+        return;
+    }
+    display.textContent = Number(result).toLocaleString("en-US");
+    // stack is set to result as the first item
+    stack = [display.textContent];
 }
 
-function multiply(num1, num2) {
-    return num1 * num2;
-}
-
-function divide(num1, num2) {
-    return num1 / num2;
+// clears calculator display and clears stack
+function clear() {
+    stack = [];
+    display.textContent = 0;
 }

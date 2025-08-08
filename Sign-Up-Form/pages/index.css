@@ -1,0 +1,148 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Lexend', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    height: 100%;
+}
+
+.side-bar {
+    position: relative;
+    width: 40vw;
+}
+
+.side-bar img {
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+.translucent-bar {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 0px;
+    text-align: center;
+    top: 25%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.translucent-bar img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    z-index: 1;
+    filter: invert(1);
+    left: 20%;
+}
+
+.translucent-bar h1 {
+    position: absolute;
+    color: white;
+    left: 40%;
+    font-size: 4em;
+}
+
+.form-sheet {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 0px 50px;
+    height: 35vh;
+    gap: 30px;
+}
+
+.second-phrase {
+    margin-bottom: 70px;
+}
+
+.form {
+    padding: 30px 50px;
+    height: 23vh;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form h3 {
+    font-size: 1.7em;
+    font-weight: 400;
+}
+
+.input-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 30px 0px;
+    margin-right: 200px;
+    gap: 25px;
+    flex-shrink: 2;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    padding: 8px 5px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9em;
+    letter-spacing: 0.1px;
+    width: 80%;
+}
+
+.bottom {
+    height: 35vh;
+    margin: 20px 40px;
+}
+
+button {
+    margin: 20px 0px;
+    background-color: rgb(79, 100, 79);
+    color: white;
+    border: 0px;
+    border-radius: 6px;
+    padding: 12px 50px;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+    color: rgb(79, 100, 79);
+    font-weight: 600;
+}
+
+button:active {
+    background-color: rgb(117, 141, 117);
+}
+
+input:active {
+    border: 1px solid rgb(106, 106, 255);
+    box-shadow: 1px 1px 1px black;
+}
+
+a:active {
+    color: rgb(117, 141, 117);
+}

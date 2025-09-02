@@ -51,15 +51,17 @@ body {
 .header {
     display: flex;
     flex-direction: column;
-    padding: 20px 40px 50px 40px;
-    gap: 30px;
-    height: 12%;
-    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.3);
+    padding: 10px 40px 10px 40px;
+    gap: 20px;
+    height: 25vh;
+    box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 .top-header {
     display: flex;
     justify-content: space-between;
+    height: 50%;
 }
 
 .top-header .left {
@@ -67,18 +69,19 @@ body {
     flex-direction: row;
     align-items: center;
     width: 75%;
-    gap: 10px
+    gap: 10px;
 }
 
 .top-header .left input {
     width: 80%;
-    height: 40px;
+    height: 50%;
+    background-color: rgb(216, 225, 233);
 }
 
 .top-header .right {
     display: flex;
     flex-direction: row;
-    width: 30%;
+    width: 25%;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -88,6 +91,7 @@ body {
 .bottom-header {
     display: flex;
     justify-content: space-between;
+    height: 50%;
 }
 
 .bottom-header .left {
@@ -101,29 +105,36 @@ body {
 .bottom-header .right {
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 30%;
     justify-content: space-around;
+    gap: 10px;
     align-items: center;
     padding: 10px;
+}
+
+.bottom-header .right button {
+    width: 7vw;
 }
 
 .hello-message {
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: center;
 }
 
 .dash {
-    background-color: rgb(209, 218, 221);
+    background-color: rgb(216, 225, 233);
     display: grid;
     grid-template-columns: 5fr 2fr;
     grid-template-rows: 1fr 1fr;
-    height: 88%;
-    padding: 30px 10px;
+    height: 80vh;
+    padding: 30px 40px 50px 20px;
 }
 
 .projects {
     grid-row: 1/span 2;
+    padding-right: 20px;
 }
 
 .projects-grid {
@@ -138,11 +149,68 @@ body {
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 80%;
-    height: 120px;
+    width: 86%;
+    height: 15vh;
     padding: 20px 20px;
     border-radius: 5px;
     box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.3);
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+.annoucements-grid {
+    margin-top: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.3);
+    height: 80%;
+}
+
+.annoucement-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 30px;
+}
+
+.annoucement-card p {
+    font-size: 0.9rem;
+}
+
+.trending-grid {
+    margin-top: 15px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.3);
+    height: 86%;
+}
+
+.profileCard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.profileCard img {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.profileCard p:first-of-type {
+    align-self:flex-end;
+}
+
+.profileCard p:nth-of-type(2) {
+    font-size: 0.8rem;
 }
 
 input {
@@ -160,14 +228,51 @@ input {
     transform: scale(2);
 }
 
+.header-icon {
+    height: 24px;
+    width: 28px;
+    cursor: pointer;
+}
+
 .nav-icon {
     width: 24px;
     height: 24px;
     filter: invert(1);
+    cursor: pointer;
 }
 
 .nav-item {
     display: flex;
     gap: 25px;
     align-items: center;
+}
+
+button {
+    color: white;
+    background-color: rgb(51, 148, 223);
+    padding: 10px 20px;
+    border: 0px;
+    border-radius: 50px;
+}
+
+.profile-pic {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.big-profile-pic {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.other-profile-pics {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.description-text {
+    color: gray;
 }

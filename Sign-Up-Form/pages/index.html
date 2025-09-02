@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="side-bar">
-        <img src="content/photo-1585202900225-6d3ac20a6962.avif"/>
+        <img src="content\photo-1585202900225-6d3ac20a6962.avif"/>
         <div class="translucent-bar">
             <img src="content/barber-svgrepo-com.svg" alt="Logo">
             <h1>barber.io</h1>
@@ -22,7 +22,7 @@
             <h2>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.<br>Sign up <em>now</em> to get started</h2>
             <h2 class="second-phrase">You <em>know</em> you want to.</h2>
         </div>
-        <div class="form">
+        <form class="form" action="/submit" method="post">
             <h3>Let's do this!</h3>
             <div class="input-area">
                 <div class="input-group">
@@ -35,24 +35,24 @@
                 </div>
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="text" id="email" required>
+                    <input type="email" id="email" required>
                 </div>
                 <div class="input-group">
                     <label for="phone-number">Phone Number</label>
-                    <input type="text" id="phone-number" required>
+                    <input type="number" id="phone-number" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="text" id="password" required>
+                    <input type="password" id="password" required>
                 </div>
                 <div class="input-group">
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="text" id="confirm-password" required>
+                    <input type="password" id="confirm-password" required>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="bottom">
-            <button class="create-account">Create Account</button>
+            <button class="create-account" type="submit">Create Account</button>
             <p>Already have an account? <a class="log-in">Log in</a> </p>
         </div>
     </div>

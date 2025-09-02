@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: rgb(0, 142, 251);
+    width: 30vw;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.help {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-header {
+    display: flex;
+}
+
+.bottom-header {
+    display: flex;
+}
+
+.dash {
+    background-color: gray;
+}
